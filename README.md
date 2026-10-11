@@ -106,7 +106,7 @@ barrioteca-ios/
 
 ## Creditos
 
-Desarrollado por **Peloxi** ([@Pelochochi](https://instagram.com/Pelochochi)) para la **Barrioteca Acalenca**, espacio perteneciente a **Lebeche**, asociacion cultural y vecinal de Salobrena (Granada).
+Desarrollado por [**Peloxi**](https://jesuscastilla.github.io/portfolio-pelotxo/) ([@Pelochochi](https://instagram.com/Pelochochi)) para la **Barrioteca Acalenca**, espacio perteneciente a **Lebeche**, asociacion cultural y vecinal de Salobrena (Granada).
 
 ## Licencia
 
