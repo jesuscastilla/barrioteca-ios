@@ -94,15 +94,15 @@ barrioteca-ios/
 ## Repositorio
 
 - **Local**: `g:\GITHUB\barrioteca-ios\`
-- **GitHub**: https://github.com/jesuscastilla/acalenca-barrioteca-app-ios
+- **GitHub**: https://github.com/jesuscastilla/barrioteca-ios
 
 ## Repositorios relacionados
 
 | Repositorio | Descripcion |
 |------------|-------------|
-| [acalenca-barrioteca-app](https://github.com/jesuscastilla/acalenca-barrioteca-app) | App web (frontend React) |
-| [acalenca-barrioteca](https://github.com/jesuscastilla/acalenca-barrioteca) | SLiMS (backend PHP) |
-| [acalenca-barrioteca-app-android-v2](https://github.com/jesuscastilla/acalenca-barrioteca-app-android-v2) | App Android nativa (Kotlin/Compose) |
+| [barrioteca-web](https://github.com/jesuscastilla/barrioteca-web) | App web (frontend React) |
+| [barrioteca-slims](https://github.com/jesuscastilla/barrioteca-slims) | SLiMS (backend PHP) |
+| [barrioteca-android](https://github.com/jesuscastilla/barrioteca-android) | App Android nativa (Kotlin/Compose) |
 
 ## Creditos
 

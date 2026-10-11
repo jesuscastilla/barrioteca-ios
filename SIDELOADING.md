@@ -15,7 +15,7 @@ Guia para instalar el IPA sin firmar de la Barrioteca en un iPhone/iPad **sin** 
 
 ## Paso 1 - Descargar el IPA
 
-1. Entra en el repositorio: https://github.com/jesuscastilla/acalenca-barrioteca-app-ios
+1. Entra en el repositorio: https://github.com/jesuscastilla/barrioteca-ios
 2. Pestaña **Actions** > ultimo workflow en verde > seccion **Artifacts**.
 3. Descarga **Barrioteca-iOS-unsigned** (es un `.zip`; descomprimelo para obtener el `.ipa`).
 
