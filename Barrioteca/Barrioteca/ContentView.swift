@@ -95,7 +95,12 @@ struct WebView: UIViewRepresentable {
             type: WKMediaCaptureType,
             decisionHandler: @escaping (WKPermissionDecision) -> Void
         ) {
-            decisionHandler(.grant)
+            // 🛡️ Sentinel: Only grant media capture to trusted hosts
+            if origin.host == appHost || origin.host == legacyHost {
+                decisionHandler(.grant)
+            } else {
+                decisionHandler(.deny)
+            }
         }
 
         // MARK: - Selector de archivo (botón "Foto" del escáner)
