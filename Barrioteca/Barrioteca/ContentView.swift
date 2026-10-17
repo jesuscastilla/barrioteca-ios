@@ -63,6 +63,14 @@ struct WebView: UIViewRepresentable {
         config.defaultWebpagePreferences = prefs
 
         let webView = WKWebView(frame: .zero, configuration: config)
+
+        // ⚡ Bolt: Performance optimization
+        // Eliminates alpha blending overhead for the GPU by ensuring the view is opaque.
+        // This speeds up the rendering pass, especially during scrolling.
+        webView.isOpaque = true
+        webView.backgroundColor = .systemBackground
+        webView.scrollView.backgroundColor = .systemBackground
+
         webView.uiDelegate = context.coordinator
         webView.navigationDelegate = context.coordinator
         webView.allowsBackForwardNavigationGestures = true
@@ -72,8 +80,16 @@ struct WebView: UIViewRepresentable {
         model.reload = { [weak webView] in
             webView?.reload()
         }
-        model.error = nil
-        model.isLoading = true
+
+        // ⚡ Bolt: Prevent unnecessary re-renders
+        // Only trigger @Published state changes if the values actually changed
+        if model.error != nil {
+            model.error = nil
+        }
+        if !model.isLoading {
+            model.isLoading = true
+        }
+
         webView.load(URLRequest(url: url))
         return webView
     }
@@ -176,21 +192,35 @@ struct WebView: UIViewRepresentable {
         // MARK: - Progreso y errores
 
         func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
-            model?.isLoading = true
-            model?.error = nil
+            // ⚡ Bolt: Prevent unnecessary SwiftUI view re-renders
+            if model?.isLoading != true {
+                model?.isLoading = true
+            }
+            if model?.error != nil {
+                model?.error = nil
+            }
         }
 
         func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
-            model?.isLoading = false
+            // ⚡ Bolt: Prevent unnecessary SwiftUI view re-renders
+            if model?.isLoading != false {
+                model?.isLoading = false
+            }
         }
 
         func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
-            model?.isLoading = false
+            // ⚡ Bolt: Prevent unnecessary SwiftUI view re-renders
+            if model?.isLoading != false {
+                model?.isLoading = false
+            }
             model?.error = error
         }
 
         func webView(_ webView: WKWebView, didFailProvisionalNavigation navigation: WKNavigation!, withError error: Error) {
-            model?.isLoading = false
+            // ⚡ Bolt: Prevent unnecessary SwiftUI view re-renders
+            if model?.isLoading != false {
+                model?.isLoading = false
+            }
             model?.error = error
         }
     }
