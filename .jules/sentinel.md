@@ -1,0 +1,4 @@
+## 2023-10-17 - [WKWebView Media Capture Security]
+**Vulnerability:** The application was automatically granting `WKMediaCaptureType` permissions (such as camera access) to any origin via the `requestMediaCapturePermissionFor` delegate method in `WKWebView`.
+**Learning:** By default, if a `WKWebView` asks for media capture permissions, it must explicitly verify the requesting origin to ensure untrusted sites loaded in the web view cannot gain unauthorized access to the user's camera or microphone. This is especially important for web wrapper apps that could navigate to or embed third-party content.
+**Prevention:** Always validate the `origin.host` in the `requestMediaCapturePermissionFor` delegate against a list of trusted hosts (e.g., `appHost`, `legacyHost`) before calling `decisionHandler(.grant)`. Default to `decisionHandler(.deny)` for untrusted or unknown origins.
