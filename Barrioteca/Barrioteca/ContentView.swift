@@ -68,12 +68,22 @@ struct WebView: UIViewRepresentable {
         webView.allowsBackForwardNavigationGestures = true
         webView.scrollView.contentInsetAdjustmentBehavior = .always
 
+        // Vista opaca: elimina el blending alfa y acelera el renderizado
+        webView.isOpaque = true
+        webView.backgroundColor = .systemBackground
+        webView.scrollView.backgroundColor = .systemBackground
+
         context.coordinator.model = model
         model.reload = { [weak webView] in
             webView?.reload()
         }
-        model.error = nil
-        model.isLoading = true
+        // Evita re-renders: solo asigna si el valor realmente cambia
+        if model.error != nil {
+            model.error = nil
+        }
+        if !model.isLoading {
+            model.isLoading = true
+        }
         webView.load(URLRequest(url: url))
         return webView
     }
@@ -181,21 +191,32 @@ struct WebView: UIViewRepresentable {
         // MARK: - Progreso y errores
 
         func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
-            model?.isLoading = true
-            model?.error = nil
+            // Evita re-renders: solo asigna si el valor realmente cambia
+            if model?.isLoading != true {
+                model?.isLoading = true
+            }
+            if model?.error != nil {
+                model?.error = nil
+            }
         }
 
         func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
-            model?.isLoading = false
+            if model?.isLoading != false {
+                model?.isLoading = false
+            }
         }
 
         func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
-            model?.isLoading = false
+            if model?.isLoading != false {
+                model?.isLoading = false
+            }
             model?.error = error
         }
 
         func webView(_ webView: WKWebView, didFailProvisionalNavigation navigation: WKNavigation!, withError error: Error) {
-            model?.isLoading = false
+            if model?.isLoading != false {
+                model?.isLoading = false
+            }
             model?.error = error
         }
     }
