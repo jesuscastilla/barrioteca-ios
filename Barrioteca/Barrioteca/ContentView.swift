@@ -95,7 +95,12 @@ struct WebView: UIViewRepresentable {
             type: WKMediaCaptureType,
             decisionHandler: @escaping (WKPermissionDecision) -> Void
         ) {
-            decisionHandler(.grant)
+            // Solo se concede cámara/micrófono a hosts de confianza
+            if origin.host == appHost || origin.host == legacyHost {
+                decisionHandler(.grant)
+            } else {
+                decisionHandler(.deny)
+            }
         }
 
         // MARK: - Selector de archivo (botón "Foto" del escáner)
