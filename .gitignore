@@ -23,3 +23,8 @@ Pods/
 # Archivos de sistema
 .DS_Store
 Thumbs.db
+
+# Agente Jules: artefactos y propuestas locales (no versionar)
+.jules/
+jules-*
+PROPUESTAS.md
