@@ -18,6 +18,8 @@ struct ContentView: View {
             if model.isLoading {
                 ProgressView()
                     .progressViewStyle(.circular)
+                    .controlSize(.large)
+                    .accessibilityLabel("Cargando la Barrioteca")
             }
 
             if let error = model.error {
@@ -29,12 +31,18 @@ struct ContentView: View {
                         .font(.footnote)
                         .foregroundColor(.secondary)
                         .multilineTextAlignment(.center)
-                    Button("Reintentar") {
+                    Button(action: {
                         model.reload?()
+                    }) {
+                        Label("Reintentar", systemImage: "arrow.clockwise")
                     }
                     .buttonStyle(.borderedProminent)
                 }
                 .padding(24)
+                .background(.regularMaterial)
+                .cornerRadius(16)
+                .shadow(radius: 10)
+                .padding(.horizontal, 32)
             }
         }
     }
