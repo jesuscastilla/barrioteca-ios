@@ -24,7 +24,6 @@ Pods/
 .DS_Store
 Thumbs.db
 
-# Agente Jules: artefactos y propuestas locales (no versionar)
+# Agente Jules: artefactos locales (no versionar)
 .jules/
 jules-*
-PROPUESTAS.md
