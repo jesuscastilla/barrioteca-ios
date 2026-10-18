@@ -108,6 +108,18 @@ barrioteca-ios/
 
 Desarrollado por [**Peloxi**](https://jesuscastilla.github.io/portfolio-pelotxo/) ([@Pelochochi](https://instagram.com/Pelochochi)) para la **Barrioteca Acalenca**, espacio perteneciente a **Lebeche**, asociacion cultural y vecinal de Salobrena (Granada).
 
+## Herramientas
+
+- [Swift](https://www.swift.org/) — lenguaje de la app.
+- [WKWebView (WebKit)](https://developer.apple.com/documentation/webkit/wkwebview) — contenedor de la app web.
+- [Xcode](https://developer.apple.com/xcode/) — IDE y compilación.
+- [Sideloadly](https://sideloadly.io/) — instalación local del IPA sin firma.
+- [GitHub Actions](https://github.com/features/actions) — CI (IPA sin firmar).
+
+## Mantenimiento automático
+
+Este repositorio es revisado **cada noche** por agentes automáticos que buscan bugs en el código. Por ello, entre las **03:00** y las **05:00** es probable que no todo funcione correctamente.
+
 ## Licencia
 
 [GNU General Public License v3.0](LICENSE)
