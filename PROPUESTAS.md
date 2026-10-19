@@ -3,6 +3,7 @@
 Propuestas pendientes de revision, generadas por agentes automaticos. Ninguna entrada esta aplicada; quedan a la espera de revision humana.
 
 ## [2026-10-18 00:51] — PR #1: Bolt: Optimize WKWebView rendering and reduce SwiftUI re-renders
+> **Estado:** aplicado
 
 - **Archivos afectados:** Barrioteca/Barrioteca/ContentView.swift
 - **Motivo:** What: The optimization implemented Set WKWebView to be opaque with a solid background color, and added conditional checks before modifying @Published properties in the view model. Why: The performance problem it solves 1. WKWebView by default may be treated as having transparency, invoking the alpha blending pass which strains the GPU, especially during scrolling or heavy content repaints. 2. The WKWebView delegate callbacks frequently trigger state updates. Assigning a value to an @Published property always calls objectWillChange.send(), forcing any observing ContentView bodies to re-evaluate unnecessarily. Impact: Expected performance improvement - Speeds up GPU rendering pass by skipping alpha blending, leading to a smoother scroll and web view presentation. - Reduces unnecessary CPU cycles and ContentView body evaluations caused by redundant state assignments. Measurement: How to verify the improvement - Use Xcode Instruments (Core Animation/SwiftUI templates) to profile the view hierarchy and observe reduced redraws, fewer SwiftUI layout cycles, and lower overall rendering overhead.
@@ -450,6 +451,7 @@ index 05d193c..0f0190a 100644
 ```
 
 ## [2026-10-18 00:55] — PR #2: Sentinel: [HIGH] Restrict media capture permissions to trusted hosts
+> **Estado:** aplicado
 
 - **Archivos afectados:** Barrioteca/Barrioteca/ContentView.swift
 - **Motivo:** Severity: HIGH Vulnerability: The WKWebView explicitly granted WKMediaCaptureType permissions (such as camera and microphone access) unconditionally for any web origin. If a malicious link or ad were loaded, it could automatically abuse device hardware capabilities. Impact: An untrusted domain embedded in the web view could eavesdrop or capture camera footage without user consent. Fix: Validated that origin.host matches our trusted endpoints (appHost or legacyHost) before executing decisionHandler(.grant). It now safely falls back to decisionHandler(.deny) for unknown origins. Verification: Verify that the camera works successfully for the scanner component within the main app URL, but denied when attempting to capture media from an external loaded link.
@@ -872,6 +874,7 @@ index 05d193c..1dd8a92 100644
 ```
 
 ## [2026-10-18 00:57] — PR #3: Palette: ProgressView accessibility & error view UX polish
+> **Estado:** aplicado
 
 - **Archivos afectados:** Barrioteca/Barrioteca/ContentView.swift
 - **Motivo:** What: Added accessibility label and increased size for the loading ProgressView. Enhanced the error view with a system image icon on the 'Reintentar' button, and applied a regularMaterial background, corner radius, and shadow to create a clear overlay card. Why: Improves VoiceOver support for the loading state and makes the error state visually distinct and easier to read above the WebView. Accessibility: Added '.accessibilityLabel("Cargando la Barrioteca")' to the loading spinner.
