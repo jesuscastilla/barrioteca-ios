@@ -24,6 +24,3 @@ Pods/
 .DS_Store
 Thumbs.db
 
-# Agente Jules: artefactos locales (no versionar)
-.jules/
-jules-*
