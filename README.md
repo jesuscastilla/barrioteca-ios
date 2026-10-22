@@ -116,10 +116,6 @@ Desarrollado por [**Peloxi**](https://jesuscastilla.github.io/portfolio-pelotxo/
 - [Sideloadly](https://sideloadly.io/) — instalación local del IPA sin firma.
 - [GitHub Actions](https://github.com/features/actions) — CI (IPA sin firmar).
 
-## Mantenimiento automático
-
-Este repositorio es revisado **cada noche** por agentes automáticos que buscan bugs en el código. Por ello, entre las **03:00** y las **05:00** es probable que no todo funcione correctamente.
-
 ## Licencia
 
 [GNU General Public License v3.0](LICENSE)
