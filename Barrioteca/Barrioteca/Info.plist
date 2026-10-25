@@ -2,44 +2,20 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>CFBundleDevelopmentRegion</key>
-	<string>es</string>
-	<key>CFBundleDisplayName</key>
-	<string>Barrioteca Acalencá</string>
-	<key>CFBundleExecutable</key>
-	<string>$(EXECUTABLE_NAME)</string>
-	<key>CFBundleIdentifier</key>
-	<string>com.barrioteca.acalenca.ios</string>
-	<key>CFBundleInfoDictionaryVersion</key>
-	<string>6.0</string>
-	<key>CFBundleName</key>
-	<string>Barrioteca</string>
-	<key>CFBundlePackageType</key>
-	<string>APPL</string>
-	<key>CFBundleShortVersionString</key>
-	<string>1.0</string>
-	<key>CFBundleVersion</key>
-	<string>1</string>
-	<key>LSRequiresIPhoneOS</key>
-	<true/>
-	<key>NSCameraUsageDescription</key>
-	<string>La Barrioteca necesita acceder a la cámara para escanear los códigos de barras de los libros y las tarjetas de socias.</string>
-	<key>NSPhotoLibraryUsageDescription</key>
-	<string>La Barrioteca usa la galería para escanear un código de barras desde una foto.</string>
 	<key>NSAppTransportSecurity</key>
 	<dict>
 		<key>NSAllowsArbitraryLoads</key>
 		<false/>
 		<key>NSExceptionDomains</key>
 		<dict>
-			<key>www.corrientelebeche.es</key>
+			<key>pelotxo.synology.me</key>
 			<dict>
 				<key>NSExceptionAllowsInsecureHTTPLoads</key>
 				<false/>
 				<key>NSIncludesSubdomains</key>
 				<true/>
 			</dict>
-			<key>pelotxo.synology.me</key>
+			<key>www.corrientelebeche.es</key>
 			<dict>
 				<key>NSExceptionAllowsInsecureHTTPLoads</key>
 				<false/>
@@ -53,20 +29,5 @@
 		<key>UIColorName</key>
 		<string>LaunchScreenBackground</string>
 	</dict>
-	<key>UIRequiredDeviceCapabilities</key>
-	<array>
-		<string>arm64</string>
-	</array>
-	<key>UISupportedInterfaceOrientations</key>
-	<array>
-		<string>UIInterfaceOrientationPortrait</string>
-	</array>
-	<key>UISupportedInterfaceOrientations~ipad</key>
-	<array>
-		<string>UIInterfaceOrientationPortrait</string>
-		<string>UIInterfaceOrientationPortraitUpsideDown</string>
-		<string>UIInterfaceOrientationLandscapeLeft</string>
-		<string>UIInterfaceOrientationLandscapeRight</string>
-	</array>
 </dict>
 </plist>
