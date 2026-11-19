@@ -42,7 +42,7 @@ Para que la app iOS funcione correctamente, necesitas anadir el archivo `apple-a
 
 2. El archivo debe servirse sin extension `.json` y con content-type `application/json`
 
-Puedes subir el archivo por **SMB** (`\\192.168.50.94\`) o por **SFTP** (`192.168.50.93`, puerto 22).
+Puedes subir el archivo por **SMB** o por **SFTP** a la raíz de la carpeta web en el NAS.
 
 ## Permisos de camara (Info.plist)
 
@@ -93,7 +93,6 @@ barrioteca-ios/
 
 ## Repositorio
 
-- **Local**: `g:\GITHUB\barrioteca-ios\`
 - **GitHub**: https://github.com/jesuscastilla/barrioteca-ios
 
 ## Repositorios relacionados
